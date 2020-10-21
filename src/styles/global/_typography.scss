@@ -1,0 +1,47 @@
+@import 'styles/global/colors';
+@import 'styles/mixins/typography';
+
+h1,
+h2,
+p,
+a,
+small {
+  color: inherit;
+}
+
+b {
+  font-weight: 800;
+}
+
+h1 {
+  @include typo-headline1;
+}
+
+h2 {
+  @include typo-headline2;
+}
+
+h3 {
+  @include typo-headline3;
+}
+
+h4 {
+  @include typo-headline4;
+}
+
+p {
+  @include typo-p;
+
+  &.label {
+    @include typo-p;
+    font-weight: 800;
+  }
+}
+
+small {
+  @include typo-small;
+
+  &.label {
+    font-weight: 800;
+  }
+}

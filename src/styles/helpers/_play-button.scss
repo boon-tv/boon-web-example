@@ -1,0 +1,29 @@
+@mixin play-button($class) {
+  cursor: pointer;
+  &:hover {
+    .#{$class} {
+      background-color: darken($colorMessageFrame, 10%);
+    }
+  }
+
+  .#{$class} {
+    @include position(absolute, 50% null null 50%);
+    @include size(70px);
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: $colorMessageFrame;
+    //backdrop-filter: saturate(180%) blur(20px);
+    border-radius: 50%;
+    pointer-events: none;
+    transition: background-color 250ms ease-in-out, opacity 250ms ease-out;
+
+    svg {
+      @include size(48px);
+      fill: $colorWhite;
+    }
+  }
+}

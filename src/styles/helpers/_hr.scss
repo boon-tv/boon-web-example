@@ -1,0 +1,24 @@
+@import 'styles/global/colors';
+
+@mixin hr() {
+  display: flex;
+  align-items: center;
+  color: $colorMuted;
+
+  &:before,
+  &:after {
+    flex: 1 1 auto;
+    content: '';
+    border-bottom: 1px solid #e8e8e8;
+    margin-top: 1px;
+    height: 1px;
+  }
+
+  &:before {
+    margin-right: 12px;
+  }
+
+  &:after {
+    margin-left: 12px;
+  }
+}

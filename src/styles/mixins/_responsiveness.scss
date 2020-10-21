@@ -1,0 +1,28 @@
+@import 'styles/global/variables';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins/_breakpoints';
+
+@mixin above($args...) {
+  @include media-breakpoint-up($args...) {
+    @content;
+  }
+}
+
+@mixin below($args...) {
+  @include media-breakpoint-down($args...) {
+    @content;
+  }
+}
+
+@mixin between($args...) {
+  @include media-breakpoint-between($args...) {
+    @content;
+  }
+}
+
+@mixin at($args...) {
+  @include media-breakpoint-only($args...) {
+    @content;
+  }
+}

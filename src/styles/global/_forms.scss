@@ -1,0 +1,28 @@
+@import 'styles/global/colors';
+@import 'styles/modules/bourbon';
+
+.input-label {
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  float: left;
+}
+
+.input-label-value,
+.input-label-value-right {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: $colorMuted;
+}
+
+.input-label-value-right {
+  float: right;
+}
+
+.input-error {
+  font-size: 12px;
+  font-weight: 400;
+  color: $colorAlarm;
+  margin-bottom: 15px;
+}

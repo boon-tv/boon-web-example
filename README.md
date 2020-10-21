@@ -1,68 +1,144 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Boon Web React App Example
 
-## Available Scripts
+This project is a template that is similar in structure to the Boon Web repository.
 
-In the project directory, you can run:
+In the root of this repository is a Sketch file containing the design. If you don't have Sketch, let us know, then we'll find another way.
 
-### `yarn start`
+- [Boon Web React App Example](#boon-web-react-app-example)
+  * [Getting started](#getting-started)
+  * [Project structure](#project-structure)
+  * [The exercise](#the-exercise)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting started
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Boon uses yarn, so all commands in this file will reflect that.
 
-### `yarn test`
+To get started, simply install the packages with the following command:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+yarn install
+```
 
-### `yarn build`
+And then you're ready to start the project with the following command:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+yarn start
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Project structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The project uses Create React App and our own structure on top of that. In the `assets/svg` folder we've added some relevant SVGs to this exercise.
 
-### `yarn eject`
+```
+.
+├─ /public                            # Static public assets (not imported anywhere in source code)
+│   └─ index.html                     # The main HTML entry-point of the application
+└─ /src                               # Application source code
+    ├─ index.js                       # Application bootstrap and rendering
+    ├─ App.js                         # The root of the actual application. This handles global rendering logic, and renders the root route.
+    ├─ /api                           # Contains methods to communicate with the API
+    ├─ /components                    # Global Reusable Components
+    │   └─ /<ComponentName>           # Some other component. Can contain multiple jsx too, if they are tightly connected in use
+    │       ├─ index.js
+    │       ├─ <ComponentName>.js     # Main component rendering logic
+    │       └─ <ComponentName>.scss   # Optional accompanying styles
+    ├─ /routes                        # Contains all pages on the platform
+    │   └─ <Name>Page                 # Top-level page
+    │       ├─ index.js
+    │       ├─ <Name>Page.js          # Main component rendering logic
+    │       └─ <Name>Page.scss        # Optional accompanying styles
+    ├─ /assets                        # Contains assets
+    |   ├─ /fonts                     # Contains all fonts
+    |   ├─ /img                       # Contains all images
+    |   └─ /svg                       # Contains all svgs - imported through JS, ReactComponent
+    └─ /styles                        # Sass helpers and "settings", like variables and mixins
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## The exercise
+The feature we're currently working on is a poll.
+There's a Sketch file in the root of the repository containing the design.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### API
+For this exercise we've created a mock API that uses `LocalStorage` for persistence. Should the data in `LocalStorage` be corrupted somehow, the following command can be executed in the developer console:
+```
+window.localStorage.clear()
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+For the API, we're working with the following `Poll` object type which is seeded initially from the file `data/poll.js`:
+```
+{
+  id: 'bd8f4b86-e98a-455d-8b84-0e9fa7cd5abc',               // Poll ID
+  message: 'Hvilken pasta er den bedste til bolognese?',    // Poll title / question
+  votesCount: 2,                                            // The amount of votes on the poll
+  votersCount: 2,                                           // The amount of voters on the poll
+  myVotes: [],                                              // An array of pollOption id's reprecsenting the votes of the user viewing the poll
+  voters: [                                                 // An array of the people who have voted on the poll
+    {
+      id: '3c952bb1-5be0-48ec-b9f7-0549602ee40a',
+      name: 'Frederik Fredslund Lassen',
+      profileImageUrl: 'https://img.boon.tv/cc712a73-60e2-49d3-a5db-162728f7dd28.jpg',
+      username: 'fredefl'
+    },
+    {
+      id: 'f5a0b33a-984d-4e5c-9ec4-f01e6d6a9b42',
+      name: 'Boon Support',
+      profileImageUrl: 'https://img.boon.tv/361a6de8-d51c-4a15-a629-ab44811b95de.png',
+      username: 'fredslund'
+    }
+  ],
+  user: {                                                   // The user who created the poll
+    id: '3c952bb1-5be0-48ec-b9f7-0549602ee40a',
+    name: 'Frederik Fredslund Lassen',
+    profileImageUrl: 'https://img.boon.tv/cc712a73-60e2-49d3-a5db-162728f7dd28.jpg',
+    username: 'fredefl'
+  },
+  pollOptions: [                                            // An array of the options of the poll
+    {
+      id: 'c18bab54-1c03-40b2-876e-d963840716c4',           // The ID of the option
+      order: 0,                                             // The initial order of the poll options used for sorting when no votes are present
+      message: 'Conchiglie',                                // The options text
+      votesCount: 2,                                        // The amount of votes for said option
+      createdAt: '2020-10-07T11:49:34.471Z'                 // When the option was created
+    },
+  ]
+}
+```
 
-## Learn More
+The following object is the `PollOption` type:
+```
+{
+  id: 'c18bab54-1c03-40b2-876e-d963840716c4',           // The ID of the option
+  order: 0,                                             // The initial order of the poll options used for sorting when no votes are present
+  message: 'Conchiglie',                                // The options text
+  votesCount: 2,                                        // The amount of votes for said option
+  createdAt: '2020-10-07T11:49:34.471Z'                 // When the option was created
+}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The API located in `api/poll.js` and can be imported from there. The API can be interacted with using the following functions:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+As we're using [Immutable.js](https://immutable-js.github.io/immutable-js/docs/#/]) for the real Boon project, these mock API endpoints also return Immutable Objects. These can be converted into regular JS objects by calling `.toJS()` on them.
 
-### Code Splitting
+#### `getPollApi()`
+Gets the whole `Poll` object as an Immutable object.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+#### `useGetPollApi()`
+A React hook to get the whole `Poll` object. It returns a JS object literal containing two items: `data` and `refresh`. The `data` item contains the `Poll` object in an Immutable form, the `refresh` item is a function, that when called re-queries the API for the poll object, which is returned on a re-render in the `data` item.
 
-### Analyzing the Bundle Size
+#### `createPollOptionApi()`
+This function creates a new option on the poll. It takes a `message` parameter as a `string` like so:
+```
+createPollOptionApi({ message: 'Example' })
+```
+It returns the new `PollOption` object.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+#### `pollVoteApi()`
+This function submits the users votes on the poll. It takes a `optionIds` parameter as an `array` of `strings` like so:
+```
+pollVoteApi({ optionIds: ['c18bab54-1c03-40b2-876e-d963840716c4', 'a23a2bd-1c03-40b2-876e-d963840716c4'] })
+```
+It returns the `Poll` object with the new votes reflected.
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### `resetDataApi()`
+This function resets the API back to initial data.

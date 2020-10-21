@@ -1,0 +1,13 @@
+@import 'styles/modules/bourbon';
+@import 'styles/global/colors';
+@import 'styles/mixins/responsiveness';
+@import 'styles/mixins/typography';
+
+.Poll {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: rgba($colorRed, 0.2);
+
+  // TODO: temporary values below
+  width: 450px;
+}

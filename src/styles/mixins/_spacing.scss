@@ -1,0 +1,16 @@
+@import 'styles/global/variables';
+@import 'styles/modules/bourbon';
+@import 'styles/mixins/typography';
+
+@mixin page-no-header-spacing {
+  margin-top: -$headerMarginBottom;
+}
+
+@mixin page-exchange-header-spacing {
+  margin-top: -$headerMarginBottom;
+  padding-top: $headerMarginBottom;
+}
+
+@mixin page-behind-header {
+  margin-top: -$headerHeight - $headerMarginBottom;
+}

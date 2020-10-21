@@ -1,0 +1,27 @@
+@import 'styles/modules/bourbon';
+@import 'styles/global/colors';
+
+@mixin spinner($size: 24px, $color: $colorBlack, $width: 3px) {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  @include size($size);
+  border-radius: 50%;
+  border: $width solid $color;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  animation: spinner 1s linear infinite;
+
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: middle;
+
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

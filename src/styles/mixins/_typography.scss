@@ -1,0 +1,109 @@
+@import 'styles/global/variables';
+@import 'styles/mixins/responsiveness';
+
+@mixin typo-p() {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@mixin typo-small() {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+// New text styles
+
+@mixin typo-headline1() {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+@mixin typo-headline2() {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+@mixin typo-headline3() {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+@mixin typo-headline4() {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+@mixin typo-headline5() {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+@mixin typo-headline6() {
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+@mixin typo-display1() {
+  font-size: 96px;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+@mixin typo-display2() {
+  font-size: 88px;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+@mixin typo-display3() {
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+@mixin typo-display4() {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+// Inputs
+
+@mixin typo-label() {
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+// Creator Landing Page
+
+@mixin typo-rubrik() {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+@mixin typo-bodylarge() {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+@mixin typo-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+@mixin typo-list-header {
+  color: #999999;
+  font-size: 13px;
+  text-transform: uppercase;
+  @include typo-mono;
+}

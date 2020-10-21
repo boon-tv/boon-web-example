@@ -1,0 +1,17 @@
+@import 'styles/global/colors';
+
+@mixin box() {
+  background-color: $colorPanel;
+  border-radius: 4px;
+  box-shadow: 0 60px 80px 0 rgba(0, 0, 0, 0.02),
+    0 18px 24px 0 rgba(0, 0, 0, 0.01), 0 8px 10px 0 rgba(0, 0, 0, 0.01),
+    0 3px 4px 0 rgba(0, 0, 0, 0.01);
+}
+
+@mixin box-mobile-stretch() {
+  @include below(sm) {
+    border-radius: 0;
+    margin-left: -$containerSpacing;
+    margin-right: -$containerSpacing;
+  }
+}

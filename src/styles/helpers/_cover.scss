@@ -1,0 +1,33 @@
+@import 'styles/modules/bourbon';
+@import 'styles/global/colors';
+
+@mixin cover() {
+  position: relative;
+  background-color: $colorBackground;
+  background-position: center;
+  background-size: cover;
+
+  padding-top: 56.25%; // 16:9
+
+  &:before {
+    content: '';
+    @include position(absolute, 0);
+    background-image: rgba(black, 0.05);
+  }
+}
+
+@mixin userCover() {
+  padding-top: (9 / 32 * 100%);
+
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(white, 0.05);
+}
+
+@mixin eventCover() {
+  padding-top: (9 / 16 * 100%);
+
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(white, 0.05);
+}

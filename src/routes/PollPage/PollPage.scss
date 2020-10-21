@@ -1,0 +1,14 @@
+@import 'styles/modules/bourbon';
+@import 'styles/global/colors';
+@import 'styles/mixins/responsiveness';
+@import 'styles/mixins/typography';
+
+.PollPage {
+  min-height: 100vh;
+  width: 100%;
+  color: $colorWhite;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

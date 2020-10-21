@@ -1,0 +1,44 @@
+// Boon 3.0
+$colorDark0: #141415;
+$colorDark4: #29292a;
+$colorDark8: #303031;
+$colorDark24: #39393a;
+
+$colorTextPrimary: #f0f1f2;
+$colorTextSecondary: #9fa0a0;
+$colorTextMuted: #717172;
+
+// Black'n'white
+$colorBlack: #1b2530;
+$colorWhite: $colorTextPrimary;
+
+// Greyscale
+$colorDark: $colorBlack;
+$colorMuted: #646c73;
+$colorBorder: #e8e9ea;
+$colorBackground: #fafafa;
+$colorBasicGrey: #f4f4f4;
+
+// Brand
+$colorPrimary: #1a1a1c;
+$colorSecondary: #0093b3;
+$colorRed: #f95f5f;
+$colorPurple: #a966f7;
+$colorBlue: #68a0f2;
+$colorGreen: #57d7a6;
+$colorYellow: #ffd664;
+
+$colorDarkBlue: #292f3a;
+
+// Color state
+$colorSuccess: $colorGreen;
+$colorWarning: $colorYellow;
+$colorAlarm: $colorRed;
+$colorError: $colorRed;
+
+// Live
+$colorLive: $colorAlarm;
+
+// New design
+$colorBase: #1a1a1c;
+$colorPanel: $colorDark4;

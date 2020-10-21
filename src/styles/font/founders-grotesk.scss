@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'FoundersGrotesk';
+  font-style: italic;
+  font-weight: 800;
+  src: url('../../assets/font/FoundersGroteskWeb-BoldItalic.woff2')
+      format('woff2'),
+    url('../../assets/font/FoundersGroteskWeb-BoldItalic.woff') format('woff'),
+    url('../../assets/font/FoundersGroteskWeb-BoldItalic.eot') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FoundersGrotesk';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../../assets/font/FoundersGroteskWeb-Bold.woff2') format('woff2'),
+    url('../../assets/font/FoundersGroteskWeb-Bold.woff') format('woff'),
+    url('../../assets/font/FoundersGroteskWeb-Bold.eot') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FoundersGrotesk';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../../assets/font/FoundersGroteskWeb-RegularItalic.woff2')
+      format('woff2'),
+    url('../../assets/font/FoundersGroteskWeb-RegularItalic.woff')
+      format('woff'),
+    url('../../assets/font/FoundersGroteskWeb-RegularItalic.eot') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FoundersGrotesk';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../assets/font/FoundersGroteskWeb-Regular.woff2') format('woff2'),
+    url('../../assets/font/FoundersGroteskWeb-Regular.woff') format('woff'),
+    url('../../assets/font/FoundersGroteskWeb-Regular.eot') format('woff');
+  font-display: swap;
+}
